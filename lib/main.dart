@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluuter_course/pages/Day5.dart';
+import 'package:fluuter_course/pages/youtube-search-page/youtube_search.dart';
 
 void main(){
   runApp(const MyApp());
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const TikTokUI()
+      home: const YoutubeSearch()
     );
   }
 }
