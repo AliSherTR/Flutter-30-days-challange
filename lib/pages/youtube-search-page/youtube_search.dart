@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluuter_course/pages/youtube-search-page/model/youtube_search_Model.dart';
 
 class YoutubeSearch extends StatefulWidget {
   const YoutubeSearch({super.key});
@@ -10,6 +13,18 @@ class YoutubeSearch extends StatefulWidget {
 class _YoutubeSearchState extends State<YoutubeSearch> {
   bool _searchBarOpen = false;
   int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadMockDataFromAssets();
+  }
+
+  Future<void> _loadMockDataFromAssets() async {
+    String assetsData = await rootBundle.loadString("assets/search.json");
+    YoutubeSearchModel response = YoutubeSearchModel.fromJson(jsonDecode(assetsData));
+    print(response.itemsData[0].snippet.thumbnails.defaultThumbnail);
+  }
 
   AppBar searchBox() {
     return AppBar(
